@@ -1,7 +1,12 @@
 import { useState } from 'react'
 import Image from "next/image";
 
-export const Link = (props: any) => {
+interface Props {
+  href: string
+  value: string
+}
+
+export const Link = (props: Props) => {
   return <a className="px-5 py-5 border-secondary-10 border-b hover:bg-secondary-10 md:hover:bg-transparent md:px-0 md:py-0 md:border-none font-bold uppercase duration-300 text-sm md:hover:text-secondary-10" href={props.href}>{props.value}</a>
 }
 
