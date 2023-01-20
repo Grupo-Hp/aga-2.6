@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ReactElement, useState } from 'react'
 import Image from "next/image";
 
 interface Props {
@@ -6,11 +6,11 @@ interface Props {
   value: string
 }
 
-export const Link = (props: Props) => {
-  return <a className="px-5 py-5 border-secondary-10 border-b hover:bg-secondary-10 md:hover:bg-transparent md:px-0 md:py-0 md:border-none font-bold uppercase duration-300 text-sm md:hover:text-secondary-10" href={props.href}>{props.value}</a>
+export const Link = ({value, href}: Props): ReactElement => {
+  return <a className="px-5 py-5 border-secondary-10 border-b hover:bg-secondary-10 md:hover:bg-transparent md:px-0 md:py-0 md:border-none font-bold uppercase duration-300 text-sm md:hover:text-secondary-10" href={href}>{value}</a>
 }
 
-export const Nav = (props: any) => {
+export const Nav = (props: any): ReactElement => {
 
   const [mobileOpen, setMobileOpen] = useState(false)
 
