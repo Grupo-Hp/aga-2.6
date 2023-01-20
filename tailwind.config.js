@@ -8,17 +8,20 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          10: '#0F1A2E',
-          20: '#172F4C',
-          30: '#194486',
+          10: "#0F1A2E",
+          20: "#172F4C",
+          30: "#194486",
         },
         secondary: {
-          10: '#BE8F41',
-          20: '#D3AE58',
-          30: '#8E7923'
+          10: "#BE8F41",
+          20: "#D3AE58",
+          30: "#8E7923",
         },
+      },
+      backgroundImage: {
+        header: "url('/images/header.png')",
       },
     },
     plugins: [],
-  }
-}
+  },
+};
