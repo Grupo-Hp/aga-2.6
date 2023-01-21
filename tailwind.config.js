@@ -21,6 +21,7 @@ module.exports = {
       backgroundImage: {
         header: "url('/images/header.png')",
         company: "url('/images/company.png')",
+        mvv: "url('/images/mvv.png')",
       },
     },
     plugins: [],
