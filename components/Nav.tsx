@@ -28,7 +28,7 @@ export const Nav = (props: any): ReactElement => {
           alt="Logo da AGÁ Empreendimentos"
 
         /></a>
-      <nav className={`bg-primary-10 text-white flex items-center md:justify-end px-12 py-16 md:px-24 border-b-4 border-secondary-10 ${mobileOpen ? 'h-screen md:h-28 duration-200' : "h-28 duration-200"}`}>
+      <nav className={`bg-primary-10 text-white flex scroll-m-0 items-center md:justify-end px-12 py-16 md:px-24 border-b-4 border-secondary-10 ${mobileOpen ? 'h-screen md:h-28 duration-200' : "h-28 duration-200"}`}>
 
         <div className={`${mobileOpen ? 'md:hidden flex flex-col w-full border-t border-secondary-10' : 'hidden md:flex gap-x-10' }`}>
           {props.children}

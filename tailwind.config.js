@@ -20,6 +20,7 @@ module.exports = {
       },
       backgroundImage: {
         header: "url('/images/header.png')",
+        company: "url('/images/company.png')",
       },
     },
     plugins: [],

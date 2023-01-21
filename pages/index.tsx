@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Nav, Link } from '../components/Nav'
-import { Header } from '../components/Header'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { GetStaticProps } from 'next'
 import { useTranslation } from 'next-i18next'
+
+import { Nav, Link } from '../components/Nav'
+import { Header } from '../components/Header'
+import { Company } from '../components/Company'
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
@@ -35,6 +37,7 @@ const Home: NextPage = () => {
         <Link href="#" value={t('contact')} />
       </Nav>
       <Header text="requinte e sofisticação em forma de traços" subText='Conheça a AGÁ Empreendimentos' />
+      <Company />
     </>
   )
 }
