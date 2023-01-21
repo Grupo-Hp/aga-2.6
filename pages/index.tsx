@@ -7,6 +7,7 @@ import { useTranslation } from 'next-i18next'
 import { Nav, Link } from '../components/Nav'
 import { Header } from '../components/Header'
 import { Company } from '../components/Company'
+import { Button } from '../components/Button'
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
@@ -36,7 +37,9 @@ const Home: NextPage = () => {
         <Link href="#" value={t('services')} />
         <Link href="#" value={t('contact')} />
       </Nav>
-      <Header text="requinte e sofisticação em forma de traços" subText='Conheça a AGÁ Empreendimentos' />
+      <Header text={t('titleHeader')} subText={t('subTitleHeader')} >
+        <Button color="bg-primary-10" hover="hover:bg-primary-20" value={t('buttonHeader')} />
+      </Header>
       <Company />
     </>
   )
