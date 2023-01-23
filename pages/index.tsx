@@ -41,10 +41,10 @@ const Home: NextPage = () => {
       <Header text={t('titleHeader')} subText={t('subTitleHeader')} >
         <Button color="bg-primary-10" hover="hover:bg-primary-20" value={t('buttonHeader')} />
       </Header>
-      <Company />
       <About >
         <Button color="bg-primary-10" hover="hover:bg-primary-20" value={t('buttonHeader')} />
       </About>
+      <Company />
     </>
   )
 }
