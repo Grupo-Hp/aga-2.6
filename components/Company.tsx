@@ -36,16 +36,16 @@ export const Company = (): ReactElement => {
                 </div>
             </div>
 
-            <div className="bg-cyan-900 bg-mvv bg-cover text-white py-16 px-5 flex">
+            <div className="bg-cyan-900 r text-white">
+                <div className="bg-mvv bg-cove flex py-16 px-5">
+                    <div className="mx-auto flex flex-col xl:flex-row xl:justify-around gap-y-5 xl:gap-x-16">
+                        <Card icon={<TbMountain />} title="missão" info="Entregar produtos de excelência, respeitando todas as normas de Segurança, Qualidade e Meio ambiente, que superem as expectativas de nossos clientes e parceiros." />
 
-                <div className="mx-auto flex flex-col xl:flex-row xl:justify-around gap-y-5 xl:gap-x-16">
-                    <Card icon={<TbMountain />} title="missão" info="Entregar produtos de excelência, respeitando todas as normas de Segurança, Qualidade e Meio ambiente, que superem as expectativas de nossos clientes e parceiros." />
+                        <Card icon={<TbEye />} title="visão" info="Ser referência no mercado de Construção Civil em comprometimento, ética profissional e qualidade, se consolidando como uma marca forte e única." />
 
-                    <Card icon={<TbEye />} title="visão" info="Ser referência no mercado de Construção Civil em comprometimento, ética profissional e qualidade, se consolidando como uma marca forte e única." />
-
-                    <Card icon={<TbDiamond />} title="valores" info="Ética, Transparência e Integridade, buscando sempre as melhores soluções de mercado e construindo relacionamento de longo prazo com nossos clientes, parceiros e colaboradores." />
+                        <Card icon={<TbDiamond />} title="valores" info="Ética, Transparência e Integridade, buscando sempre as melhores soluções de mercado e construindo relacionamento de longo prazo com nossos clientes, parceiros e colaboradores." />
+                    </div>
                 </div>
-
             </div>
         </div>
     )

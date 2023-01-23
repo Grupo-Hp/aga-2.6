@@ -7,6 +7,7 @@ import { useTranslation } from 'next-i18next'
 import { Nav, Link } from '../components/Nav'
 import { Header } from '../components/Header'
 import { Company } from '../components/Company'
+import { About } from '../components/About'
 import { Button } from '../components/Button'
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
@@ -41,6 +42,9 @@ const Home: NextPage = () => {
         <Button color="bg-primary-10" hover="hover:bg-primary-20" value={t('buttonHeader')} />
       </Header>
       <Company />
+      <About >
+        <Button color="bg-primary-10" hover="hover:bg-primary-20" value={t('buttonHeader')} />
+      </About>
     </>
   )
 }
