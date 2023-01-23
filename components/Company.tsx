@@ -37,7 +37,7 @@ export const Company = (): ReactElement => {
             </div>
 
             <div className="bg-cyan-900 r text-white">
-                <div className="bg-mvv bg-cove flex py-16 px-5">
+                <div className="bg-mvv bg-cove flex py-32 px-5">
                     <div className="mx-auto flex flex-col xl:flex-row xl:justify-around gap-y-5 xl:gap-x-16">
                         <Card icon={<TbMountain />} title="missão" info="Entregar produtos de excelência, respeitando todas as normas de Segurança, Qualidade e Meio ambiente, que superem as expectativas de nossos clientes e parceiros." />
 
