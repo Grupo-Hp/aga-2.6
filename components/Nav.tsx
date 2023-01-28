@@ -44,5 +44,3 @@ export const Nav = (props: any): ReactElement => {
     </>
   )
 }
-
-export default Nav
