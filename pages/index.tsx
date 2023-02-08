@@ -9,6 +9,7 @@ import { Header } from '../components/Header'
 import { Company } from '../components/Company'
 import { About } from '../components/About'
 import { Button } from '../components/Button'
+import { Footer } from '../components/Footer'
 import Policy from '../components/Policy'
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
@@ -47,6 +48,7 @@ const Home: NextPage = () => {
         <Button color="bg-primary-10" hover="hover:bg-primary-20" value={t('buttonHeader')} />
       </About>
       <Company />
+      <Footer />
     </>
   )
 }
