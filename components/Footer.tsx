@@ -4,6 +4,8 @@ import Link from 'next/link';
 export const Footer = () => {
 
     const title = 'text-md font-semibold'
+    const ulBox = 'flex flex-col gap-y-4'
+    const ulInfo = 'flex flex-col'
     const li = 'text-md text-slate-400 my-1 inline-block'
     const linkFooter = 'hover:text-slate-300 hover:underline underline-offset-2 duration-100'
     const info = 'text-md text-slate-400'
@@ -14,7 +16,7 @@ export const Footer = () => {
             <div className="grid grid-cols-3 gap-3 text-white container max-w-4xl mx-auto">
                 <div className="col-span-2 md:col-span-1">
                     <h1 className={title}>Onde estamos</h1>
-                    <ul className="flex flex-col gap-y-4">
+                    <ul className={ulBox}>
                         <ul>
                             <li className={info}>Av. Pref. Silvio Picanço, 463</li>
                             <li className={info}>Sala 708/711</li>
@@ -33,12 +35,12 @@ export const Footer = () => {
                 </div>
                 <div className="col-span-2 md:col-span-1">
                     <h1 className={title}>Lançamentos</h1>
-                    <ul className="flex flex-col gap-y-4">
-                        <ul className='flex flex-col'>
+                    <ul className={ulBox}>
+                        <ul className={ulInfo}>
                             <Link href="#"><li className={`${li} ${linkFooter}`}>ItaipuMall</li></Link>
                             <Link href="#"><li className={`${li} ${linkFooter}`}>Aruã</li></Link>
                         </ul>
-                        <ul className='flex flex-col'>
+                        <ul className={ulInfo}>
                             <h1 className={title}>Precisa de ajuda?</h1>
                             <Link href="./contact"><li className={`${li} ${linkFooter}`}>Atendimento</li></Link>
                             <Link href="./contact"><li className={`${li} ${linkFooter}`}>Ouvidoria</li></Link>
@@ -48,14 +50,14 @@ export const Footer = () => {
                 </div>
                 <div className="col-span-2 md:col-span-1">
                     <h1 className={title}>Central de Relacionamento</h1>
-                    <ul className="flex flex-col gap-y-4">
+                    <ul className={ulBox}>
                         <ul>
                             <li className={info}>4042-1845 (Central AGÁ)</li>
                             <li className={info}>4040-4148 (Central Grupo HP)</li>
                             <li className={info}>De segunda a sexta, das 08h às 18h, exceto feriado.</li>
                             <li className={info}>contato@agaempreendimentos.com</li>
                         </ul>
-                        <ul className='flex flex-col'>
+                        <ul className={ulInfo}>
                             <h1 className={title}>Outras informações</h1>
                             <a href="https://www.hpcap.com.br/" target='blank'><li className={`${li} ${linkFooter}`}>HP Capital</li></a>
                             <a href="https://www.hpbank.com.br/" target='blank'><li className={`${li} ${linkFooter}`}>HP Bank</li></a>
