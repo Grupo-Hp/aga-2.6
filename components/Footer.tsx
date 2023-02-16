@@ -1,9 +1,11 @@
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import Link from 'next/link';
 
 export const Footer = () => {
 
     const title = 'text-md font-semibold'
-    const li = 'text-md text-slate-400 my-1'
+    const li = 'text-md text-slate-400 my-1 inline-block'
+    const linkFooter = 'hover:text-slate-300 hover:underline underline-offset-2 duration-100'
     const info = 'text-md text-slate-400'
     const ano = new Date().getFullYear()
 
@@ -22,9 +24,9 @@ export const Footer = () => {
                         <ul>
                             <h1 className={title}>Siga nossas redes</h1>
                             <div className="flex text-3xl text-slate-400 gap-2 py-3">
-                                <i><FaFacebook /></i>
-                                <i><FaInstagram /></i>
-                                <i><FaLinkedin /></i>
+                                <Link href="#"><li className={`${linkFooter}`}><i><FaFacebook /></i></li></Link>
+                                <Link href="#"><li className={`${linkFooter}`}><i><FaInstagram /></i></li></Link>
+                                <Link href="#"><li className={`${linkFooter}`}><i><FaLinkedin /></i></li></Link>
                             </div>
                         </ul>
                     </ul>
@@ -32,15 +34,15 @@ export const Footer = () => {
                 <div className="col-span-2 md:col-span-1">
                     <h1 className={title}>Lançamentos</h1>
                     <ul className="flex flex-col gap-y-4">
-                        <ul>
-                            <li className={li}>ItaipuMall</li>
-                            <li className={li}>Aruã</li>
+                        <ul className='flex flex-col'>
+                            <Link href="#"><li className={`${li} ${linkFooter}`}>ItaipuMall</li></Link>
+                            <Link href="#"><li className={`${li} ${linkFooter}`}>Aruã</li></Link>
                         </ul>
-                        <ul>
+                        <ul className='flex flex-col'>
                             <h1 className={title}>Precisa de ajuda?</h1>
-                            <li className={li}>Atendimento</li>
-                            <li className={li}>Ouvidoria</li>
-                            <li className={li}>Contato</li>
+                            <Link href="./contact"><li className={`${li} ${linkFooter}`}>Atendimento</li></Link>
+                            <Link href="./contact"><li className={`${li} ${linkFooter}`}>Ouvidoria</li></Link>
+                            <Link href="./contact"><li className={`${li} ${linkFooter}`}>Contato</li></Link>
                         </ul>
                     </ul>
                 </div>
@@ -53,11 +55,11 @@ export const Footer = () => {
                             <li className={info}>De segunda a sexta, das 08h às 18h, exceto feriado.</li>
                             <li className={info}>contato@agaempreendimentos.com</li>
                         </ul>
-                        <ul>
+                        <ul className='flex flex-col'>
                             <h1 className={title}>Outras informações</h1>
-                            <li className={li}>HP Capital</li>
-                            <li className={li}>HP Bank</li>
-                            <li className={li}>Politica de privacidade</li>
+                            <a href="https://www.hpcap.com.br/" target='blank'><li className={`${li} ${linkFooter}`}>HP Capital</li></a>
+                            <a href="https://www.hpbank.com.br/" target='blank'><li className={`${li} ${linkFooter}`}>HP Bank</li></a>
+                            <a href="/policy" target="_blank"><li className={`${li} ${linkFooter}`}>Politica de privacidade</li></a>
                         </ul>
                     </ul>
                 </div>

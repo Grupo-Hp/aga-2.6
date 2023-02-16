@@ -1,16 +1,21 @@
 import { ReactElement, useState } from 'react'
 import Image from "next/image";
+import Link from 'next/link';
 
 interface Props {
   href: string
   value: string
 }
 
-export const Link = ({value, href}: Props): ReactElement => {
-  return <a className="px-5 py-5 border-secondary-10 border-b hover:bg-secondary-10 md:hover:bg-transparent md:px-0 md:py-0 md:border-none font-bold uppercase duration-300 text-sm md:hover:text-secondary-10" href={href}>{value}</a>
+interface INav {
+  children: React.ReactNode;
 }
 
-export const Nav = (props: any): ReactElement => {
+export const LinkNav = ({value, href}: Props): ReactElement => {
+  return <Link className="px-5 py-5 border-secondary-10 border-b hover:bg-secondary-10 md:hover:bg-transparent md:px-0 md:py-0 md:border-none font-bold uppercase duration-300 text-sm md:hover:text-secondary-10" href={href}>{value}</Link>
+}
+
+export const Nav = ({children}: INav): ReactElement => {
 
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -18,7 +23,7 @@ export const Nav = (props: any): ReactElement => {
 
   return (
     <>
-      <a href="./"
+      <Link href="./"  
         className="flex absolute left-20 top-4"
       >
         <Image
@@ -27,11 +32,11 @@ export const Nav = (props: any): ReactElement => {
           height={150}
           alt="Logo da AGÁ Empreendimentos"
 
-        /></a>
+        /></Link>
       <nav className={`bg-primary-10 text-white flex scroll-m-0 items-center md:justify-end px-12 py-16 md:px-24 border-b-4 border-secondary-10 ${mobileOpen ? 'h-screen md:h-28 duration-200' : "h-28 duration-200"}`}>
 
         <div className={`${mobileOpen ? 'md:hidden flex flex-col w-full border-t border-secondary-10' : 'hidden md:flex gap-x-10' }`}>
-          {props.children}
+          {children}
         </div>
 
         <button className="md:hidden absolute top-14 right-10" onClick={() => setMobileOpen((currentValue) => !currentValue)}>

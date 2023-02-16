@@ -1,32 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { GetStaticProps } from 'next'
-import { useTranslation } from 'next-i18next'
-
-import { Nav, Link } from '../components/Nav'
 import { Header } from '../components/Header'
 import { Company } from '../components/Company'
 import { About } from '../components/About'
 import { Button } from '../components/Button'
-import { Footer } from '../components/Footer'
+
 import Policy from '../components/Policy'
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-
-  return {
-    props: {
-      ...(await serverSideTranslations(locale!, [
-        'common',
-        'nav'
-      ])),
-    },
-  }
-}
-
 const Home: NextPage = () => {
-
-  const { t } = useTranslation('nav')
 
   return (
     <>
@@ -36,19 +17,13 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Policy />
-      <Nav>
-        <Link href="#" value={t('company')} />
-        <Link href="#" value={t('services')} />
-        <Link href="#" value={t('contact')} />
-      </Nav>
-      <Header text={t('titleHeader')} subText={t('subTitleHeader')} >
-        <Button color="bg-primary-10" hover="hover:bg-primary-20" value={t('buttonHeader')} />
+      <Header text="REQUINTE E SOFISTICAÇÃO EM FORMA DE TRAÇOS" subText="Conheça a AGÁ Empreendimentos" >
+        <Button color="bg-primary-10" hover="hover:bg-primary-20" value="saiba mais" />
       </Header>
       <About >
-        <Button color="bg-primary-10" hover="hover:bg-primary-20" value={t('buttonHeader')} />
+        <Button color="bg-primary-10" hover="hover:bg-primary-20" value="saiba mais" />
       </About>
       <Company />
-      <Footer />
     </>
   )
 }

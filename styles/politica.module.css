@@ -4,6 +4,7 @@
     transform: translateY(1rem);
     animation: slideUp 0.5s forwards;
     animation-delay: .5s;
+    background: rgba(0, 0, 0, .6);
 }
 
 @keyframes slideUp {

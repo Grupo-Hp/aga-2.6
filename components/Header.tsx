@@ -1,6 +1,5 @@
 import { ReactElement } from "react"
 
-
 interface Props {
     text: string
     subText: string
