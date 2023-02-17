@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Link from 'next/link';
 import Head from 'next/head'
 import { Header } from '../components/Header'
 import { Company } from '../components/Company'
@@ -18,10 +19,10 @@ const Home: NextPage = () => {
       </Head>
       <Policy />
       <Header text="REQUINTE E SOFISTICAÇÃO EM FORMA DE TRAÇOS" subText="Conheça a AGÁ Empreendimentos" >
-        <Button color="bg-primary-10" hover="hover:bg-primary-20" value="saiba mais" />
+        <Link href="./contact"><Button color="bg-primary-10" hover="hover:bg-primary-20" value="saiba mais" /></Link>
       </Header>
       <About >
-        <Button color="bg-primary-10" hover="hover:bg-primary-20" value="saiba mais" />
+        <Link href="./contact"><Button color="bg-primary-10" hover="hover:bg-primary-20" value="saiba mais" /></Link>
       </About>
       <Company />
     </>

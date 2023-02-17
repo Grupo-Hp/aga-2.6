@@ -18,7 +18,7 @@ const Contact: NextPage = () => {
             <Input className='col-span-2 md:col-span-1' placeholder='Digite seu telefone*' />
             <Input className='col-span-2 md:col-span-1' placeholder='Digite seu assunto*' />
           </div>
-          <Textarea placeholder='Escreva aqui' />
+          <Textarea placeholder='Escreva aqui...' />
           <Button color="bg-primary-10" hover="hover:bg-primary-20" value="enviar" className='mt-0' />
         </form>
       </div>

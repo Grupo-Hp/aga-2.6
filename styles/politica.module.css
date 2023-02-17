@@ -3,7 +3,7 @@
     opacity: 0;
     transform: translateY(1rem);
     animation: slideUp 0.5s forwards;
-    animation-delay: .5s;
+    animation-delay: 1.5s;
     background: rgba(0, 0, 0, .6);
 }
 

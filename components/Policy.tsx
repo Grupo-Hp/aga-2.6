@@ -12,19 +12,19 @@ export default function Policy(): ReactElement {
     }, [])
 
     const addStorage = () => {
-        document.querySelector('.concordo')?.classList.add('lg:hidden')
+        document.querySelector('.concordo')?.classList.add('hidden')
         localStorage.setItem('politica', 'ok')
     }
 
     const refuseStorage = () => {
-        document.querySelector('.concordo')?.classList.add('lg:hidden')
+        document.querySelector('.concordo')?.classList.add('hidden')
     }
 
     const button = 'inline-block p-2.5 bg-zinc-300 text-primary-10 font-medium text-xs uppercase rounded hover:bg-zinc-400 transition duration-300'
 
     return (
         <div className={`fixed concordo w-full h-full overflow-auto top-0 text-white modal ${styles.containerFluid}`}>
-            <div className={`fixed md:block hidden bg-primary-10 text-zinc-300 bottom-10 right-3 max-w-md p-3 rounded-md`}>
+            <div className={`fixed bg-primary-10 text-zinc-300 bottom-10 right-3 max-w-md p-3 rounded-md`}>
                 <div className="flex gap-x-5 items-center">
                     <div className="text-6xl"><BiCookie /></div>
                     <div className="text-xs">
