@@ -34,7 +34,7 @@ export const Footer = () => {
                     </ul>
                 </div>
                 <div className="col-span-2 md:col-span-1">
-                    <h1 className={title}>Lançamentos</h1>
+                    <h1 className={title}>Principais Lançamentos</h1>
                     <ul className={ulBox}>
                         <ul className={ulInfo}>
                             <Link href="#"><li className={`${li} ${linkFooter}`}>ItaipuMall</li></Link>

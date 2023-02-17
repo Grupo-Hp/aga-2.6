@@ -22,6 +22,7 @@ module.exports = {
         header: "url('/images/header.png')",
         company: "url('/images/company.png')",
         mvv: "url('/images/mvv.png')",
+        contact: "url('/images/contact.jpg')",
       },
     },
     plugins: [],
