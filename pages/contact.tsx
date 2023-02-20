@@ -4,9 +4,9 @@ import { Input } from '../components/Input'
 import { Textarea } from '../components/Textarea'
 import { TextError } from '../components/TextError'
 import { Button } from '../components/Button'
+import { ButtonDisabled } from '../components/ButtonDisabled'
 import { useForm } from "react-hook-form";
 import axios from 'axios'
-import { notify } from "../components/Toast";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -38,11 +38,11 @@ const Contact: NextPage = () => {
           message: data.message
         }
       })
+      setLoading(false)
+      reset()
       toast.success('Mensagem enviada com sucesso!', {
         position: toast.POSITION.TOP_RIGHT
       });
-      setLoading(false)
-      reset()
     } catch (error) {
       console.log(error)
       toast.success('Ocorreu um erro!', {
@@ -107,7 +107,7 @@ const Contact: NextPage = () => {
             rules={{ required: "Escreva sua mensagem" }}
           />
           {errors.message && <TextError text="Escreva sua mensagem." />}
-          {loading && <Button color="bg-primary-10" hover="hover:bg-primary-20" value="aguarde" className='mt-0' />}
+          {loading && <ButtonDisabled color="bg-gray-600" value="aguarde..." className='mt-0' />}
           {!loading && <Button color="bg-primary-10" hover="hover:bg-primary-20" value="enviar" className='mt-0' />}
         </form>
       </div>
