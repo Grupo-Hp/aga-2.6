@@ -7,7 +7,7 @@ import { Button } from '../components/Button'
 import { ButtonDisabled } from '../components/ButtonDisabled'
 import { useForm } from "react-hook-form";
 import axios from 'axios'
-
+import { v4 as uuidv4 } from 'uuid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -31,6 +31,7 @@ const Contact: NextPage = () => {
         method: "post",
         url: "./api/hello",
         data: {
+          id: uuidv4(),
           name: data.name,
           email: data.email,
           phone: data.phone,

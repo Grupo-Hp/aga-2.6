@@ -5,7 +5,7 @@ require('dotenv').config()
 
 export default async function main(req: NextApiRequest, res: NextApiResponse) {
 
-const {name, email, phone, subject, message} = req.body
+const {id, name, email, phone, subject, message} = req.body
 
 let transporter = nodemailer.createTransport({
   host: process.env.AWS_SES_HOST,
@@ -29,6 +29,9 @@ await transporter.sendMail({
   <div>
   <h2>Menssagem do site AGÁ Empreendimentos</h2>
   <table>
+  <tr>
+  <td><span>ID:</span>${id}</td>
+  </tr>
   <tr>
   <td><span>Nome:</span>${name}</td>
   </tr>
