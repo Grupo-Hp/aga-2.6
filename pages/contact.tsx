@@ -4,6 +4,8 @@ import { Textarea } from '../components/Textarea'
 import { TextError } from '../components/TextError'
 import { Button } from '../components/Button'
 import { useForm } from "react-hook-form";
+import axios from 'axios'
+import { notify } from "../components/Toast";
 
 const Contact: NextPage = () => {
 
@@ -11,9 +13,20 @@ const Contact: NextPage = () => {
 
   const onSubmit = async (data: any) => {
     try {
-      await console.log(data)
+      await axios.post('/', {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        subject: data.subject,
+        message: data.message
+      })
+      console.log(
+        data,
+        notify({ message: "Menssagem enviada com sucesso!", variant: "error" }))
     } catch (error) {
-      console.log(error)
+      console.log(
+        error,
+        notify({ message: "Ocorreu um erro!", variant: "error" }))
     }
   };
 
