@@ -27,11 +27,11 @@ export const Nav = ({children}: INav): ReactElement => {
         className="flex absolute left-20 top-4"
       >
         <Image
-          src="/logoAga.svg"
+          src="./logoAga.svg"
           width={150}
           height={150}
           alt="Logo da AGÁ Empreendimentos"
-
+          priority
         /></Link>
       <nav className={`bg-primary-10 text-white flex scroll-m-0 items-center md:justify-end px-12 py-16 md:px-24 border-b-4 border-secondary-10 ${mobileOpen ? 'h-screen md:h-28 duration-200' : "h-28 duration-200"}`}>
 

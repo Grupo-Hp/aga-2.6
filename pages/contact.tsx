@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import { useState } from 'react'
 import { Input } from '../components/Input'
 import { Textarea } from '../components/Textarea'
 import { TextError } from '../components/TextError'
@@ -9,24 +10,37 @@ import { notify } from "../components/Toast";
 
 const Contact: NextPage = () => {
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: ""
+    }
+  });
+  const [loading, setLoading] = useState(false)
 
   const onSubmit = async (data: any) => {
+    setLoading(true)
     try {
-      await axios.post('./api/hello', {
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        subject: data.subject,
-        message: data.message
+      await axios({
+        method: "post",
+        url: "./api/hello",
+        data: {
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          subject: data.subject,
+          message: data.message
+        }
       })
-      console.log(
-        data,
-        notify({ message: "Menssagem enviada com sucesso!", variant: "error" }))
+      setLoading(false)
+      alert('enviado')
+      reset()
+      //notify({ message: "Mensagem enviada com sucesso!", variant: "success" })
     } catch (error) {
-      console.log(
-        error,
-        notify({ message: "Ocorreu um erro!", variant: "error" }))
+      console.log(error)
     }
   };
 
@@ -86,7 +100,8 @@ const Contact: NextPage = () => {
             rules={{ required: "Escreva sua mensagem" }}
           />
           {errors.message && <TextError text="Escreva sua mensagem." />}
-          <Button color="bg-primary-10" hover="hover:bg-primary-20" value="enviar" className='mt-0' />
+          {loading && <Button color="bg-primary-10" hover="hover:bg-primary-20" value="aguarde" className='mt-0' />}
+          {!loading && <Button color="bg-primary-10" hover="hover:bg-primary-20" value="enviar" className='mt-0' />}
         </form>
       </div>
     </div>

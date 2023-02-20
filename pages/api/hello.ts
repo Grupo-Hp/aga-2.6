@@ -5,7 +5,7 @@ require('dotenv').config()
 
 export default async function main(req: NextApiRequest, res: NextApiResponse) {
 
-  // const {name, email, phone, subject, message} = req
+const {name, email, phone, subject, message} = req.body
 
 let transporter = nodemailer.createTransport({
   host: process.env.AWS_SES_HOST,
@@ -17,7 +17,7 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-let info = await transporter.sendMail({
+await transporter.sendMail({
   from: process.env.AWS_SES_FROM, 
   to: process.env.AWS_SES_TO, 
   subject: process.env.AWS_SES_SUBJECT,   
@@ -30,22 +30,22 @@ let info = await transporter.sendMail({
   <h2>Menssagem do site AGÁ Empreendimentos</h2>
   <table>
   <tr>
-  <td><span>Nome:</span>${req.body.name}</td>
+  <td><span>Nome:</span>${name}</td>
   </tr>
   <tr>
-  <td><span>E-mail:</span>${req.body.email}</td>
+  <td><span>E-mail:</span>${email}</td>
   </tr>
   <tr>
-  <td><span>Telefone:</span>${req.body.phone}</td>
+  <td><span>Telefone:</span>${phone}</td>
   </tr>
   <tr>
-  <td><span>Assunto:</span>${req.body.subject}</td>
+  <td><span>Assunto:</span>${subject}</td>
   </tr>
   <tr>
   <td><span>Mensagem:</span></td>
   </tr>
   <tr>
-  <td style="text-align:justify">${req.body.message}</td>
+  <td style="text-align:justify">${message}</td>
   </tr>
   </table>
   </div>
@@ -53,4 +53,9 @@ let info = await transporter.sendMail({
   <p>Em breve, voltaremos com mais informativos do site.</p>
   <h4><a href="https://www.agaempreendimentos.com.br/">AGÁ Empreendimentos</a></h4>
   </div>`,
-})}
+}).then((message: any) => {
+  console.log(message)
+  res.status(200).json({ message: "Mensagem enviada com sucesso!" });
+}).catch((err: any) => console.log(err))
+
+}
