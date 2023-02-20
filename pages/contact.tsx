@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import { useState } from 'react'
 import { Input } from '../components/Input'
+import { Select } from '../components/Select'
 import { Textarea } from '../components/Textarea'
 import { TextError } from '../components/TextError'
 import { Button } from '../components/Button'
@@ -89,14 +90,20 @@ const Contact: NextPage = () => {
               {errors.phone && <TextError text="Insira seu telefone." />}
             </div>
             <div className="col-span-2 md:col-span-1">
-              <Input
-                className='flex flex-col'
+              <Select
+                name="subject"
                 errors={errors}
                 register={register}
+                placeholder="Escolha um assunto"
+                defaultValue="2"
                 rules={{ required: "Insira seu assunto." }}
-                name="subject"
-                placeholder="Insira seu assunto"
-              />
+              >
+                <option value="Comercial">Comercial</option>
+                <option value="Elogio">Elogio</option>
+                <option value="Reclamações">Reclamações</option>
+                <option value="Dúvidas">Dúvidas</option>
+                <option value="Sugestões">Sugestões</option>
+              </Select>
               {errors.subject && <TextError text="Insira um assunto." />}
             </div>
           </div>
