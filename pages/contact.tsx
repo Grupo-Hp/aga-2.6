@@ -8,6 +8,9 @@ import { useForm } from "react-hook-form";
 import axios from 'axios'
 import { notify } from "../components/Toast";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 const Contact: NextPage = () => {
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
@@ -35,18 +38,22 @@ const Contact: NextPage = () => {
           message: data.message
         }
       })
+      toast.success('Mensagem enviada com sucesso!', {
+        position: toast.POSITION.TOP_RIGHT
+      });
       setLoading(false)
-      alert('enviado')
       reset()
-      //notify({ message: "Mensagem enviada com sucesso!", variant: "success" })
     } catch (error) {
       console.log(error)
+      toast.success('Ocorreu um erro!', {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
   };
 
   return (
     <div className='grid grid-cols-2'>
-      <div className="bg-contact col-span-1"></div>
+      <div className="bg-contact col-span-1"><ToastContainer /></div>
       <div className='col-span-2 lg:col-span-1 p-16 bg-zinc-300'>
         <h1 className='font-semibold text-primary-10 text-3xl pb-5'>Fale conosco</h1>
         <p>Estamos dispostos a sanar quaisquer dúvidas que possam surgir. Caso queira falar conosco, basta preencher o formulário ao lado.</p>
