@@ -13,7 +13,7 @@ const Contact: NextPage = () => {
 
   const onSubmit = async (data: any) => {
     try {
-      await axios.post('/', {
+      await axios.post('./api/hello', {
         name: data.name,
         email: data.email,
         phone: data.phone,
