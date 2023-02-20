@@ -26,9 +26,9 @@ export const Footer = () => {
                         <ul>
                             <h1 className={title}>Siga nossas redes</h1>
                             <div className="flex text-3xl text-slate-400 gap-2 py-3">
-                                <Link href="#"><li className={`${linkFooter}`}><i><FaFacebook /></i></li></Link>
-                                <Link href="#"><li className={`${linkFooter}`}><i><FaInstagram /></i></li></Link>
-                                <Link href="#"><li className={`${linkFooter}`}><i><FaLinkedin /></i></li></Link>
+                                <Link href="./contact"><li className={`${linkFooter}`}><i><FaFacebook /></i></li></Link>
+                                <Link href="./contact"><li className={`${linkFooter}`}><i><FaInstagram /></i></li></Link>
+                                <Link href="./contact"><li className={`${linkFooter}`}><i><FaLinkedin /></i></li></Link>
                             </div>
                         </ul>
                     </ul>
@@ -37,8 +37,8 @@ export const Footer = () => {
                     <h1 className={title}>Principais Lançamentos</h1>
                     <ul className={ulBox}>
                         <ul className={ulInfo}>
-                            <Link href="#"><li className={`${li} ${linkFooter}`}>ItaipuMall</li></Link>
-                            <Link href="#"><li className={`${li} ${linkFooter}`}>Aruã</li></Link>
+                            <Link href="./contact"><li className={`${li} ${linkFooter}`}>ItaipuMall</li></Link>
+                            <Link href="./contact"><li className={`${li} ${linkFooter}`}>Aruã</li></Link>
                         </ul>
                         <ul className={ulInfo}>
                             <h1 className={title}>Precisa de ajuda?</h1>

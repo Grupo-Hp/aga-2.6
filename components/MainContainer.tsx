@@ -9,9 +9,9 @@ export const MainContainer = ({ children }: Props) => {
     return (
         <>
             <Nav>
-                <LinkNav href="#" value="quem somos" />
-                <LinkNav href="#" value="serviços" />
-                <LinkNav href="/contact" value="contato" />
+                <LinkNav href="./contact" value="quem somos" />
+                <LinkNav href="./contact" value="serviços" />
+                <LinkNav href="./contact" value="contato" />
             </Nav>
             {children}
             <Footer />
