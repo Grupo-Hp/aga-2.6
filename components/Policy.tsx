@@ -20,7 +20,7 @@ export default function Policy(): ReactElement {
         document.querySelector('.concordo')?.classList.add('hidden')
     }
 
-    const button = 'inline-block p-2.5 bg-zinc-300 text-primary-10 font-medium text-xs uppercase rounded hover:bg-zinc-400 transition duration-300'
+    const button = 'inline-block p-2.5 bg-zinc-300 text-primary-10 font-bold text-xs uppercase rounded hover:bg-zinc-400 transition duration-300'
 
     return (
         <div className={`fixed concordo w-full h-full overflow-auto top-0 text-white modal ${styles.containerFluid}`}>

@@ -28,17 +28,17 @@ const Contact: NextPage = () => {
   const onSubmit = async (data: any) => {
     setLoading(true)
     try {
-      // await axios({
-      //   method: "post",
-      //   url: "./api/botTelegram",
-      //   data: {
-      //     name: data.name,
-      //     email: data.email,
-      //     phone: data.phone,
-      //     subject: data.subject,
-      //     message: data.message
-      //   }
-      // })
+      await axios({
+        method: "post",
+        url: "./api/botTelegram",
+        data: {
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          subject: data.subject,
+          message: data.message
+        }
+      })
       await axios({
         method: "post",
         url: "./api/hello",
