@@ -2,27 +2,31 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 const nodemailer = require("nodemailer");
 require('dotenv').config()
+const { Telegraf } = require('telegraf');
 
 export default async function main(req: NextApiRequest, res: NextApiResponse) {
 
-const {id, name, email, phone, subject, message} = req.body
+  // const bot = new Telegraf(process.env.BOT_TOKEN);
+  // await bot.telegram.sendMessage(1726260745, "Teste site AGÁ")
 
-let transporter = nodemailer.createTransport({
-  host: process.env.AWS_SES_HOST,
-  port: process.env.AWS_SES_PORT,
-  secure: process.env.AWS_SES_SECURE, 
-  auth: {
-    user: process.env.AWS_SES_USER, 
-    pass: process.env.AWS_SES_PASS,
-  },
-});
+  const { id, name, email, phone, subject, message } = req.body
 
-await transporter.sendMail({
-  from: process.env.AWS_SES_FROM, 
-  to: process.env.AWS_SES_TO, 
-  subject: process.env.AWS_SES_SUBJECT,   
-  text: "Hello world?", 
-  html: `<style>*{font-family:arial,sans-serif}a{text-decoration:none;color:#000}th,td{padding:8px}span{font-weight:800;padding-right:5px}h4,p{text-align:center}.logo{padding-bottom:10px;border-bottom:solid 4px #d3ae58}</style>
+  let transporter = nodemailer.createTransport({
+    host: process.env.AWS_SES_HOST,
+    port: process.env.AWS_SES_PORT,
+    secure: process.env.AWS_SES_SECURE,
+    auth: {
+      user: process.env.AWS_SES_USER,
+      pass: process.env.AWS_SES_PASS,
+    },
+  });
+
+  await transporter.sendMail({
+    from: process.env.AWS_SES_FROM,
+    to: process.env.AWS_SES_TO,
+    subject: process.env.AWS_SES_SUBJECT,
+    text: "Hello world?",
+    html: `<style>*{font-family:arial,sans-serif}a{text-decoration:none;color:#000}th,td{padding:8px}span{font-weight:800;padding-right:5px}h4,p{text-align:center}.logo{padding-bottom:10px;border-bottom:solid 4px #d3ae58}</style>
   <div class="logo">
   <img src="https://www.hpcap.com.br/logoAga.svg" alt="Logo AGÁ Empreendimentos" width="100">
   </div>
@@ -56,9 +60,9 @@ await transporter.sendMail({
   <p>Em breve, voltaremos com mais informativos do site.</p>
   <h4><a href="https://www.agaempreendimentos.com.br/">AGÁ Empreendimentos</a></h4>
   </div>`,
-}).then((message: any) => {
-  console.log(message)
-  res.status(200).json({ message: "Mensagem enviada com sucesso!" });
-}).catch((err: any) => console.log(err))
+  }).then((message: any) => {
+    console.log(message)
+    res.status(200).json({ message: "Mensagem enviada com sucesso!" });
+  }).catch((err: any) => console.log(err))
 
 }

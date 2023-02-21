@@ -30,6 +30,17 @@ const Contact: NextPage = () => {
     try {
       await axios({
         method: "post",
+        url: "./api/botTelegram",
+        data: {
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          subject: data.subject,
+          message: data.message
+        }
+      })
+      await axios({
+        method: "post",
         url: "./api/hello",
         data: {
           id: uuidv4(),
