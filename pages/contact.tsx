@@ -74,6 +74,7 @@ const Contact: NextPage = () => {
             register={register}
             rules={{ required: "Insira seu e-mail." }}
             name="email"
+            type='email'
             placeholder="Escreva seu e-mail"
           />
           {errors.email && <TextError text="Insira seu e-mail." />}
@@ -83,9 +84,10 @@ const Contact: NextPage = () => {
                 className='flex flex-col'
                 errors={errors}
                 register={register}
-                rules={{ required: "Insira seu telefone." }}
+                rules={{ required: "Insira seu celular." }}
                 name="phone"
                 placeholder="Insira seu telefone"
+                type='number'
               />
               {errors.phone && <TextError text="Insira seu telefone." />}
             </div>

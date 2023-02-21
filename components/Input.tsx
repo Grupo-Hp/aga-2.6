@@ -27,6 +27,7 @@ interface IInput {
 }
 
 export const Input = ({
+
     className,
     name,
     rules,
@@ -39,7 +40,6 @@ export const Input = ({
     id,
     value,
     maxLength,
-    errors,
     onPaste,
 }: IInput) => {
     return (
