@@ -58,7 +58,9 @@ const Contact: NextPage = () => {
       });
     } catch (error) {
       console.log(error)
-      toast.success('Ocorreu um erro!', {
+      setLoading(false)
+      reset()
+      toast.error('Ocorreu um erro!', {
         position: toast.POSITION.TOP_RIGHT
       });
     }
