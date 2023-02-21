@@ -30,9 +30,6 @@ export default async function main(req: NextApiRequest, res: NextApiResponse) {
   <h2>Menssagem do site AGÁ Empreendimentos</h2>
   <table>
   <tr>
-  <td><span>ID:</span>${id}</td>
-  </tr>
-  <tr>
   <td><span>Nome:</span>${name}</td>
   </tr>
   <tr>
