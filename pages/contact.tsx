@@ -28,17 +28,17 @@ const Contact: NextPage = () => {
   const onSubmit = async (data: any) => {
     setLoading(true)
     try {
-      await axios({
-        method: "post",
-        url: "./api/botTelegram",
-        data: {
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          subject: data.subject,
-          message: data.message
-        }
-      })
+      // await axios({
+      //   method: "post",
+      //   url: "./api/botTelegram",
+      //   data: {
+      //     name: data.name,
+      //     email: data.email,
+      //     phone: data.phone,
+      //     subject: data.subject,
+      //     message: data.message
+      //   }
+      // })
       await axios({
         method: "post",
         url: "./api/hello",
@@ -59,7 +59,6 @@ const Contact: NextPage = () => {
     } catch (error) {
       console.log(error)
       setLoading(false)
-      reset()
       toast.error('Ocorreu um erro!', {
         position: toast.POSITION.TOP_RIGHT
       });
