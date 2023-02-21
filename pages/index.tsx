@@ -5,7 +5,6 @@ import { Header } from '../components/Header'
 import { Company } from '../components/Company'
 import { About } from '../components/About'
 import { Button } from '../components/Button'
-
 import Policy from '../components/Policy'
 
 const Home: NextPage = () => {
