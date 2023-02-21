@@ -11,7 +11,7 @@ const Policy: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className='bg-company'>
-                <div className='mx-16 my-10 text-end'>
+                <div className='px-16 py-10 text-end'>
                     <a href="/documents/policy-aga.pdf" download="Politica de privacidade AGÁ" target='_blank' className='bg-primary-10 hover:bg-primary-20 duration-300 px-5 py-3 rounded-md font-semibold text-white text-xs uppercase'>versão impressa</a>
                 </div>
                 <div className={`text-primary-10`}>
