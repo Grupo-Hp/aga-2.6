@@ -28,39 +28,29 @@ const Contact: NextPage = () => {
   const onSubmit = async (data: any) => {
     setLoading(true)
     try {
-      // await axios({
-      //   method: "post",
-      //   url: "./api/botTelegram",
-      //   data: {
-      //     name: data.name,
-      //     email: data.email,
-      //     phone: data.phone,
-      //     subject: data.subject,
-      //     message: data.message
-      //   }
-      // })
-      await fetch('./api/hello', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' }
+      await axios({
+        method: "post",
+        url: "./api/botTelegram",
+        data: {
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          subject: data.subject,
+          message: data.message
+        }
       })
-      await fetch('./api/botTelegram', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' }
+      await axios({
+        method: "post",
+        url: "./api/hello",
+        data: {
+          id: uuidv4(),
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          subject: data.subject,
+          message: data.message
+        }
       })
-      // await axios({
-      //   method: "post",
-      //   url: "./api/hello",
-      //   data: {
-      //     id: uuidv4(),
-      //     name: data.name,
-      //     email: data.email,
-      //     phone: data.phone,
-      //     subject: data.subject,
-      //     message: data.message
-      //   }
-      // })
       setLoading(false)
       reset()
       toast.success('Mensagem enviada com sucesso!', {
