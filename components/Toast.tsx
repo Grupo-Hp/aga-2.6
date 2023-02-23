@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-interface IToast {
+type IToast = {
   message: string;
   variant: "success" | "error" | "warning" | "info";
 }

@@ -25,23 +25,31 @@ const Contact: NextPage = () => {
   });
   const [loading, setLoading] = useState(false)
 
-  const uuid = uuidv4()
-
-  const onSubmit = async (data: any) => {
+  const uuid: string = uuidv4()
+  
+  type DataInfo = {
+    name: string,
+    email: string,
+    phone: string,
+    subject: string,
+    message: string
+  }
+  
+  const onSubmit = async (data: DataInfo) => {
     setLoading(true)
     try {
-      await axios({
-        method: "post",
-        url: "./api/botTelegram",
-        data: {
-          id: uuid,
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          subject: data.subject,
-          message: data.message
-        }
-      })
+      // await axios({
+      //   method: "post",
+      //   url: "./api/botTelegram",
+      //   data: {
+      //     id: uuid,
+      //     name: data.name,
+      //     email: data.email,
+      //     phone: data.phone,
+      //     subject: data.subject,
+      //     message: data.message
+      //   }
+      // })
       await axios({
         method: "post",
         url: "./api/hello",

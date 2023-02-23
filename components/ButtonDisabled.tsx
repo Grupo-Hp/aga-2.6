@@ -1,12 +1,12 @@
 import { ReactElement } from "react"
 
-interface IButton {
+type IButtonDisabled = {
     value: string
     color: string
     className?: string;
 }
 
-export const ButtonDisabled = ({ value, color, className }: IButton): ReactElement => {
+export const ButtonDisabled = ({ value, color, className }: IButtonDisabled): ReactElement => {
     return <button type="button" className={`${className} ${color} cursor-no-drop flex justify-center gap-x-4 duration-300 px-20 py-3 rounded-md font-semibold text-white uppercase my-3`} disabled>
         <svg
             aria-hidden="true"

@@ -1,6 +1,6 @@
 import { ReactElement } from "react"
 
-interface IButton {
+type IButton = {
     value: string
     color: string
     hover: string

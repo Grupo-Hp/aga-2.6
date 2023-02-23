@@ -1,7 +1,6 @@
 import { UseFormRegister, ValidationRule } from "react-hook-form";
-import { TextError } from "./TextError"
 
-interface ITextarea {
+type ITextarea = {
     className?: string;
     name: string;
     rules?:
@@ -34,7 +33,6 @@ export const Textarea = ({
     id,
     value,
     maxLength,
-    errors,
     rows = 6
 }: ITextarea) => {
     return <textarea
