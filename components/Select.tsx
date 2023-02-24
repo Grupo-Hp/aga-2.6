@@ -1,12 +1,13 @@
 import { UseFormRegister, FieldValues } from "react-hook-form";
+import { ReactNode, ReactElement } from "react"
 
-interface ISelect {
+type ISelect = {
     name: string;
     className?: string;
     placeholder: string;
     isDisabled?: boolean;
     defaultValue?: string;
-    children: React.ReactNode;
+    children: ReactNode;
     register: UseFormRegister<any>;
     onChange?: (e: any) => void;
 }
@@ -21,7 +22,7 @@ export const Select = ({
     isDisabled = false,
     defaultValue = "",
     onChange,
-}: ISelect & FieldValues) => {
+}: ISelect & FieldValues): ReactElement => {
     return (
         <select
             disabled={isDisabled}

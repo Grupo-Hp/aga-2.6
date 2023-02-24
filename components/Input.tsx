@@ -1,7 +1,7 @@
 import { ChangeEventHandler } from "react";
 import { UseFormRegister, ValidationRule } from "react-hook-form";
 
-interface IInput {
+type IInput = {
     className?: string;
     type?: string;
     name: string;

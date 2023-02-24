@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-interface ITextError {
+type ITextError = {
     text: string
 }
 

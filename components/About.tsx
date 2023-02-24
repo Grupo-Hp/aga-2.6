@@ -1,6 +1,6 @@
-import { ReactElement } from "react"
+import { ReactElement, ReactNode } from "react"
 
-export const About = ({ children }: any): ReactElement => {
+export const About = (children: ReactNode): ReactElement => {
     return (
         <div className="grid grid-cols-5 h-full shadow-md">
             <div className="hidden lg:flex lg:col-span-2 bg-primary-10">01</div>

@@ -1,14 +1,14 @@
 import { ReactElement } from "react"
 import { TbMountain, TbEye, TbDiamond } from 'react-icons/tb';
 
-interface Props {
+type ICompany = {
     icon?: any
     title: string
     info: string
 }
 
 
-export const Card = ({ icon, title, info }: Props): ReactElement => {
+export const Card = ({ icon, title, info }: ICompany): ReactElement => {
     return (
         <div className="max-w-3xl lg:max-w-sm grid grid-cols-3 lg:flex lg:flex-col gap-10 items-center">
             <div className="col-span-1 flex items-center flex-col">

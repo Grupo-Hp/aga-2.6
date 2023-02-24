@@ -1,12 +1,12 @@
-import { ReactElement } from "react"
+import { ReactElement, ReactNode } from "react"
 
-interface Props {
+type IHeader = {
     text: string
     subText: string
-    children?: any
+    children?: ReactNode
 }
 
-export const Header = ({ text, subText, children }: Props): ReactElement => {
+export const Header = ({ text, subText, children }: IHeader): ReactElement => {
     return (
         <div className="bg-header bg-right bg-cover h-[80vh] sm:pl-20 flex items-center">
             <div className="text-center sm:text-left">

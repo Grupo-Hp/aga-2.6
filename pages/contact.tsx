@@ -33,16 +33,13 @@ const Contact: NextPage = () => {
   });
   const [loading, setLoading] = useState(false)
 
-  const uuid = uuidv4()
-
-  const onSubmit = async (data: IValuesSend) => {
+  const onSubmit = async (data: any) => {
     setLoading(true)
     try {
       await axios({
         method: "post",
         url: "./api/botTelegram",
         data: {
-          id: uuid,
           name: data.name,
           email: data.email,
           phone: data.phone,
@@ -62,6 +59,18 @@ const Contact: NextPage = () => {
           message: data.message
         }
       })
+      // await axios({
+      //   method: "post",
+      //   url: "./api/dynamoDb",
+      //   data: {
+      //     id: uuid,
+      //     name: data.name,
+      //     email: data.email,
+      //     phone: data.phone,
+      //     subject: data.subject,
+      //     message: data.message
+      //   }
+      // })
       setLoading(false)
       reset()
       toast.success('Mensagem enviada com sucesso!', {
