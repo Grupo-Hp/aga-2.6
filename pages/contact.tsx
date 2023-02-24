@@ -6,21 +6,14 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react'
 import axios from 'axios'
 
-import { ButtonDisabled } from '../components/ButtonDisabled'
-import { TextError } from '../components/TextError'
-import { Textarea } from '../components/Textarea'
-import { Select } from '../components/Select'
-import { Button } from '../components/Button'
-import { Input } from '../components/Input'
+import { ButtonDisabled } from '../styles/components/ButtonDisabled'
+import { TextError } from '../styles/components/TextError'
+import { Textarea } from '../styles/components/Textarea'
+import { Select } from '../styles/components/Select'
+import { Button } from '../styles/components/Button'
+import { Input } from '../styles/components/Input'
 
-interface IValuesSend {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
-}
+import {IValuesSend } from './interfaces'
 
 const Contact: NextPage = () => {
 
@@ -41,11 +34,11 @@ const Contact: NextPage = () => {
   const onSubmit = async (data: IValuesSend) => {
     setLoading(true)
     try {
-      // await axios({
-      //   method: "post",
-      //   url: "./api/botTelegram",
-      //   data: data
-      // })
+      await axios({
+        method: "post",
+        url: "./api/botTelegram",
+        data: data
+      })
 
       await axios({
         method: "post",
