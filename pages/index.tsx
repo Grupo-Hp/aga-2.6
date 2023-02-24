@@ -1,10 +1,9 @@
 import type { NextPage } from 'next'
-import Link from 'next/link';
 import Head from 'next/head'
-import { Header } from '../components/Header'
+
 import { Company } from '../components/Company'
+import { Header } from '../components/Header'
 import { About } from '../components/About'
-import { Button } from '../components/Button'
 import Policy from '../components/Policy'
 
 const Home: NextPage = () => {
@@ -17,15 +16,12 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Policy />
-      <Header text="REQUINTE E SOFISTICAÇÃO EM FORMA DE TRAÇOS" subText="Conheça a AGÁ Empreendimentos" >
-        <Link href="./contact"><Button color="bg-primary-10" hover="hover:bg-primary-20" value="saiba mais" /></Link>
-      </Header>
-      <About >
-        <Link href="./contact"><Button color="bg-primary-10" hover="hover:bg-primary-20" value="saiba mais" /></Link>
-      </About>
+      <Header />
+      <About />
       <Company />
     </>
   )
+  
 }
 
 export default Home

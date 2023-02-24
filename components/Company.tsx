@@ -1,8 +1,8 @@
-import { ReactElement } from "react"
 import { TbMountain, TbEye, TbDiamond } from 'react-icons/tb';
+import { ReactElement, ReactNode } from "react"
 
 type ICompany = {
-    icon?: any
+    icon?: ReactNode
     title: string
     info: string
 }
