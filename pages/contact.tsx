@@ -12,6 +12,14 @@ import { useState } from 'react'
 import axios from 'axios'
 import 'react-toastify/dist/ReactToastify.css'
 
+interface IValuesSend {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+}
+
 const Contact: NextPage = () => {
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
@@ -25,13 +33,16 @@ const Contact: NextPage = () => {
   });
   const [loading, setLoading] = useState(false)
 
-  const onSubmit = async (data: any) => {
+  const uuid = uuidv4()
+
+  const onSubmit = async (data: IValuesSend) => {
     setLoading(true)
     try {
       await axios({
         method: "post",
         url: "./api/botTelegram",
         data: {
+          id: uuid,
           name: data.name,
           email: data.email,
           phone: data.phone,
@@ -43,7 +54,7 @@ const Contact: NextPage = () => {
         method: "post",
         url: "./api/hello",
         data: {
-          id: uuidv4(),
+          id: uuid,
           name: data.name,
           email: data.email,
           phone: data.phone,

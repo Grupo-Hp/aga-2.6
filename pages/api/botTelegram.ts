@@ -7,10 +7,12 @@ export default async function botTelegram(req: NextApiRequest, res: NextApiRespo
 
   const bot = new Telegraf(process.env.BOT_TOKEN);
 
-  const { name, email, phone, subject, message } = req.body
+  const { id, name, email, phone, subject, message } = req.body
 
-  await bot.telegram.sendMessage(1726260745, `  
+  await bot.telegram.sendMessage(process.env.BOT_USER, `  
   Menssagem do site AGÁ Empreendimentos
+
+  ID:  ${id}
 
   Nome:  ${name}
 
