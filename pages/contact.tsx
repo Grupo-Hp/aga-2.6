@@ -1,18 +1,20 @@
-import { ButtonDisabled } from '../components/ButtonDisabled'
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+import { useForm } from "react-hook-form";
+import type { NextPage } from 'next'
+import { v4 as uuidv4 } from 'uuid';
+import { useState } from 'react'
+import axios from 'axios'
+
+import { ButtonDisabled } from '../components/ButtonDisabled'
 import { TextError } from '../components/TextError'
 import { Textarea } from '../components/Textarea'
 import { Select } from '../components/Select'
 import { Button } from '../components/Button'
 import { Input } from '../components/Input'
-import type { NextPage } from 'next'
-import { useForm } from "react-hook-form";
-import { v4 as uuidv4 } from 'uuid';
-import { useState } from 'react'
-import axios from 'axios'
-import 'react-toastify/dist/ReactToastify.css'
 
 interface IValuesSend {
+  id: string;
   name: string;
   email: string;
   phone: string;
@@ -22,8 +24,10 @@ interface IValuesSend {
 
 const Contact: NextPage = () => {
 
+  const uuid = uuidv4()
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
     defaultValues: {
+      id: uuid,
       name: "",
       email: "",
       phone: "",
@@ -33,44 +37,27 @@ const Contact: NextPage = () => {
   });
   const [loading, setLoading] = useState(false)
 
-  const onSubmit = async (data: any) => {
+
+  const onSubmit = async (data: IValuesSend) => {
     setLoading(true)
     try {
-      await axios({
-        method: "post",
-        url: "./api/botTelegram",
-        data: {
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          subject: data.subject,
-          message: data.message
-        }
-      })
+      // await axios({
+      //   method: "post",
+      //   url: "./api/botTelegram",
+      //   data: data
+      // })
+
       await axios({
         method: "post",
         url: "./api/hello",
-        data: {
-          id: uuid,
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          subject: data.subject,
-          message: data.message
-        }
+        data: data
       })
+
       // await axios({
       //   method: "post",
       //   url: "./api/dynamoDb",
-      //   data: {
-      //     id: uuid,
-      //     name: data.name,
-      //     email: data.email,
-      //     phone: data.phone,
-      //     subject: data.subject,
-      //     message: data.message
-      //   }
-      // })
+      //   data: data
+
       setLoading(false)
       reset()
       toast.success('Mensagem enviada com sucesso!', {
