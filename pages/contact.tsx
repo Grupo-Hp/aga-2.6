@@ -13,7 +13,7 @@ import { Select } from '../styles/components/Select'
 import { Button } from '../styles/components/Button'
 import { Input } from '../styles/components/Input'
 
-import {IValuesSend } from './interfaces'
+import {IValuesSend } from '../interfaces'
 
 const Contact: NextPage = () => {
 
