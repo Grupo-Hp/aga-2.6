@@ -1,7 +1,7 @@
 import { ReactElement } from "react"
 import Link from 'next/link';
 
-import { Button } from '../components/Button'
+import { Button } from '../styles/components/Button'
 
 export const About = (): ReactElement => {
     return (
