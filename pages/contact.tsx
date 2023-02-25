@@ -1,8 +1,8 @@
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
 import type { NextPage } from 'next'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -16,11 +16,10 @@ import { Input } from '../styles/components/Input'
 import {IValuesSend } from '../interfaces'
 
 const Contact: NextPage = () => {
-
-  const uuid = uuidv4()
+  
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
     defaultValues: {
-      id: uuid,
+      id: "",
       name: "",
       email: "",
       phone: "",
@@ -29,30 +28,54 @@ const Contact: NextPage = () => {
     }
   });
   const [loading, setLoading] = useState(false)
-
-
+  
   const onSubmit = async (data: IValuesSend) => {
     setLoading(true)
-    try {
-      await axios({
-        method: "post",
-        url: "./api/botTelegram",
-        data: data
-      })
+    
+    const uuid = uuidv4().replace(/[-]/g, "")
+    const uuidUppercase = uuid.toUpperCase()
+    data.id = uuidUppercase
 
-      await axios({
-        method: "post",
-        url: "./api/hello",
-        data: data
-      })
+    try {
+      // await axios({
+      //   method: "post",
+      //   url: "./api/botTelegram",
+      //   data: data
+      // })
 
       // await axios({
       //   method: "post",
-      //   url: "./api/dynamoDb",
+      //   url: "./api/hello",
       //   data: data
+      // })
+
+      // await axios({
+      //   method: "post",
+      //   url: "./api/ddb_putitem",
+      //   data: data
+      // })
+
+      await axios({
+        method: "post",
+        url: "http://localhost:8080/telegram",
+        data: data
+      })
+
+      await axios({
+        method: "post",
+        url: "http://localhost:8080/send",
+        data: data
+      })
+
+      await axios({
+        method: "post",
+        url: "http://localhost:8080/dynamo",
+        data: data
+      })
 
       setLoading(false)
-      reset()
+      console.log(data)
+      reset()    
       toast.success('Mensagem enviada com sucesso!', {
         position: toast.POSITION.TOP_RIGHT
       });
