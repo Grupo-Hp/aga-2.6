@@ -20,6 +20,9 @@ const Contact: NextPage = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
     defaultValues: {
       id: "",
+      image: "Aga",
+      company: "AGÁ Empreendimentos",
+      site: "agaempreendimentos",
       name: "",
       email: "",
       phone: "",
@@ -37,44 +40,26 @@ const Contact: NextPage = () => {
     data.id = uuidUppercase
 
     try {
-      // await axios({
-      //   method: "post",
-      //   url: "./api/botTelegram",
-      //   data: data
-      // })
-
-      // await axios({
-      //   method: "post",
-      //   url: "./api/hello",
-      //   data: data
-      // })
-
-      // await axios({
-      //   method: "post",
-      //   url: "./api/ddb_putitem",
-      //   data: data
-      // })
 
       await axios({
         method: "post",
-        url: "http://localhost:8080/telegram",
+        url: "http://localhost:8080/contact/telegram",
         data: data
       })
 
       await axios({
         method: "post",
-        url: "http://localhost:8080/send",
+        url: "http://localhost:8080/contact/sendMail",
         data: data
       })
 
       await axios({
         method: "post",
-        url: "http://localhost:8080/dynamo",
+        url: "http://localhost:8080/contact/database",
         data: data
       })
 
       setLoading(false)
-      console.log(data)
       reset()    
       toast.success('Mensagem enviada com sucesso!', {
         position: toast.POSITION.TOP_RIGHT
