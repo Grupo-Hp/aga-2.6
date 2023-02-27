@@ -13,10 +13,10 @@ import { Select } from '../styles/components/Select'
 import { Button } from '../styles/components/Button'
 import { Input } from '../styles/components/Input'
 
-import {IValuesSend } from '../interfaces'
+import { IValuesSend } from '../interfaces'
 
 const Contact: NextPage = () => {
-  
+
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
     defaultValues: {
       id: "",
@@ -31,10 +31,10 @@ const Contact: NextPage = () => {
     }
   });
   const [loading, setLoading] = useState(false)
-  
+
   const onSubmit = async (data: IValuesSend) => {
     setLoading(true)
-    
+
     const uuid = uuidv4().replace(/[-]/g, "")
     const uuidUppercase = uuid.toUpperCase()
     data.id = uuidUppercase
@@ -60,7 +60,7 @@ const Contact: NextPage = () => {
       })
 
       setLoading(false)
-      reset()    
+      reset()
       toast.success('Mensagem enviada com sucesso!', {
         position: toast.POSITION.TOP_RIGHT
       });
