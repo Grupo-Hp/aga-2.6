@@ -36,7 +36,7 @@ export const Company = (): ReactElement => {
                 </div>
             </div>
 
-            <div className="bg-cyan-900 text-white">
+            {/* <div className="bg-cyan-900 text-white">
                 <div className="bg-mvv bg-cover">
                     <div className="flex py-32 px-5">
                         <div className="mx-auto flex flex-col xl:flex-row xl:justify-around gap-y-5 xl:gap-x-16">
@@ -48,7 +48,7 @@ export const Company = (): ReactElement => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

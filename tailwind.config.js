@@ -26,6 +26,6 @@ module.exports = {
         contact: "url('/images/contact.jpg')",
       },
     },
-    plugins: [],
+    plugins: [require("tw-elements/dist/plugin")]
   },
 };

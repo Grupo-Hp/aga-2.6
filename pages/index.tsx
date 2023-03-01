@@ -1,7 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
+import 'tw-elements';
+
 import { Company } from '../components/Company'
+import { Acordion } from '../components/Acordion'
 import { Header } from '../components/Header'
 import { About } from '../components/About'
 import Policy from '../components/Policy'
@@ -19,6 +22,7 @@ const Home: NextPage = () => {
       <Header />
       <About />
       <Company />
+      <Acordion />
     </>
   )
   
