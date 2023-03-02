@@ -1,13 +1,14 @@
 import { ReactElement, useState } from 'react'
 import Image from "next/image";
 import Link from 'next/link';
+import { MegaMenu } from '../styles/components/MegaMenu';
 
 export const Nav = (): ReactElement => {
 
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const toogle = "w-7 h-1 bg-white mb-1 transition-all duration-300 ease-in-out"
-  const linkStyle = "px-5 py-5 border-secondary-10 border-b hover:bg-secondary-10 md:hover:bg-transparent md:px-0 md:py-0 md:border-none font-bold uppercase duration-300 text-sm md:hover:text-secondary-10"
+  const linkStyle = "px-5 py-5 border-secondary-10 border-b hover:bg-secondary-10 md:hover:bg-transparent md:px-0 md:py-0 md:border-none font-semibold uppercase duration-300 text-sm md:hover:text-secondary-20"
 
   return (
     <>
@@ -26,7 +27,7 @@ export const Nav = (): ReactElement => {
 
         <div className={`${mobileOpen ? 'md:hidden flex flex-col w-full border-t border-secondary-10' : 'hidden md:flex gap-x-10'}`}>
           <Link className={linkStyle} onClick={() => setMobileOpen(false)} href='/contact'>quem somos</Link>
-          <Link className={linkStyle} onClick={() => setMobileOpen(false)} href='/contact'>serviços</Link>
+          <MegaMenu />
           <Link className={linkStyle} onClick={() => setMobileOpen(false)} href='/contact'>contato</Link>
         </div>
 
